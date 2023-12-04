@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Upload your energy data in a CSV File";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form asp-action="UploadCSV" asp-controller="EnergyDataController" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="fileUpload">Select CSV File:</label>
+        <input type="file" id="fileUpload" name="file" accept=".csv" />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>

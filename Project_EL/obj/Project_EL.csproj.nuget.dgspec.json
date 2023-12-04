@@ -1,33 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vonnu\\Hackathon\\Project_EL\\Project_EL.csproj": {}
+    "C:\\DEV\\hackhathon\\comp_se_110_hackathon\\Project_EL\\Project_EL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vonnu\\Hackathon\\Project_EL\\Project_EL.csproj": {
+    "C:\\DEV\\hackhathon\\comp_se_110_hackathon\\Project_EL\\Project_EL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vonnu\\Hackathon\\Project_EL\\Project_EL.csproj",
+        "projectUniqueName": "C:\\DEV\\hackhathon\\comp_se_110_hackathon\\Project_EL\\Project_EL.csproj",
         "projectName": "Project_EL",
-        "projectPath": "C:\\Users\\vonnu\\Hackathon\\Project_EL\\Project_EL.csproj",
-        "packagesPath": "C:\\Users\\vonnu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vonnu\\Hackathon\\Project_EL\\obj\\",
+        "projectPath": "C:\\DEV\\hackhathon\\comp_se_110_hackathon\\Project_EL\\Project_EL.csproj",
+        "packagesPath": "C:\\Users\\roope\\.nuget\\packages\\",
+        "outputPath": "C:\\DEV\\hackhathon\\comp_se_110_hackathon\\Project_EL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\vonnu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\roope\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -49,10 +48,6 @@
             "CsvHelper": {
               "target": "Package",
               "version": "[30.0.1, )"
-            },
-            "OpenAI": {
-              "target": "Package",
-              "version": "[1.7.2, )"
             }
           },
           "imports": [
@@ -73,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
