@@ -32,7 +32,12 @@ namespace Project_EL
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    Controllers.OpenAiApiController api = new();
+                    var x = api.AnalyzeElectricityUsage();
+                    await foreach(var y in x)
+                    {
+                        await context.Response.WriteAsync(y);
+                    }
                 });
             });
         }

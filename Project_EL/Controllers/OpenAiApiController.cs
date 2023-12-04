@@ -2,6 +2,7 @@
 using System.IO;
 using OpenAI_API;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Project_EL.Controllers
 {
@@ -24,6 +25,31 @@ namespace Project_EL.Controllers
             var chat = api.Chat.CreateConversation();
             chat.AppendUserInput(query);
             return await chat.GetResponseFromChatbotAsync();
+        }
+
+        public async IAsyncEnumerable<string> AnalyzeElectricityUsage()
+        {
+            var chat = api.Chat.CreateConversation();
+            using (var sr = new StreamReader("prequery.txt")) 
+            {
+                chat.AppendUserInput(sr.ReadToEnd());
+            }
+
+            /*using (var sr = new StreamReader("Target_household_energy_data.csv"))
+            {
+                chat.AppendUserInput(sr.ReadToEnd());
+            }*/
+
+            using (var sr = new StreamReader("questions.txt"))
+            {
+                chat.AppendUserInput(sr.ReadToEnd());
+            }
+
+            var response = chat.StreamResponseEnumerableFromChatbotAsync();
+            await foreach (var r in response)
+            {
+                yield return r;
+            }
         }
     }
 }
