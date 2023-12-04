@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Project_EL
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
@@ -34,17 +35,7 @@ namespace Project_EL
                 // Set the default route
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=EnergyDataController}/{action=Upload}/{id?}");
-
-                endpoints.MapGet("/", async context =>
-                {
-                    Controllers.OpenAiApiController api = new();
-                    var x = api.AnalyzeElectricityUsage();
-                    await foreach(var y in x)
-                    {
-                        await context.Response.WriteAsync(y);
-                    }
-                });
+                    pattern: "{controller=EnergyData}/{action=Upload}/{id?}");
             });
         }
     }

@@ -7,12 +7,13 @@ using CsvHelper.Configuration;
 using System.Globalization;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Project_EL.Models;
 
 namespace Project_EL.Services
 {
     public class CsvDataService
     {
-        public List<Models.EnergyDatapointModel> ParseCsvFile(IFormFile fileStream)
+        public List<EnergyDatapointModel> ParseCsvFile(IFormFile fileStream)
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
@@ -25,7 +26,7 @@ namespace Project_EL.Services
             using (var reader = new StreamReader(stream))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                var records = csv.GetRecords<Models.EnergyDatapointModel>().ToList();
+                var records = csv.GetRecords<EnergyDatapointModel>().ToList();
                 return records;
             }
         }
