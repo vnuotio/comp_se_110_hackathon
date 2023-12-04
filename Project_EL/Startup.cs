@@ -35,6 +35,16 @@ namespace Project_EL
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=EnergyDataController}/{action=Upload}/{id?}");
+
+                endpoints.MapGet("/", async context =>
+                {
+                    Controllers.OpenAiApiController api = new();
+                    var x = api.AnalyzeElectricityUsage();
+                    await foreach(var y in x)
+                    {
+                        await context.Response.WriteAsync(y);
+                    }
+                });
             });
         }
     }
