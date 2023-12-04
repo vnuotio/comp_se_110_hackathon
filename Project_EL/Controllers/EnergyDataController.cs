@@ -33,31 +33,32 @@ namespace Project_EL.Controllers
         [HttpPost]
         public ActionResult UploadCSV(IFormFile file)
         {
-            Console.WriteLine("Entering UploadCSV");
+            _logger.LogInformation("Entering UploadCSV");
 
             CsvDataService csvDataService = new();
 
             if (file == null || file.Length == 0)
             {
-                Console.WriteLine("erroriin men22i");
-                // Handle the error scenario where the file is not provided or is empty
-                return View("Error", "No file selected or file is empty.");
+                _logger.LogWarning("No file selected or file is empty.");
+                // Redirect to the Upload view with an error message
+                TempData["ErrorMessage"] = "No file selected or file is empty.";
+                return RedirectToAction("Upload");
             }
 
             try
             {
                 var records = csvDataService.ParseCsvFile(file);
-                // Log the number of records processed
-                Console.WriteLine($"Processed {records.Count} EnergyDataPoints.");
+                _logger.LogInformation($"Processed {records.Count} EnergyDataPoints.");
 
                 // Further processing or passing the data to the view
                 return View("Results", records);
             }
             catch (Exception ex)
             {
-                // Handle other exceptions'
-                Console.WriteLine("erroriin meni");
-                return View("Error", ex.Message);
+                _logger.LogError(ex, "An error occurred while processing the CSV file.");
+                // Redirect to an error view or back to the Upload view with an error message
+                TempData["ErrorMessage"] = "An error occurred while processing the file.";
+                return RedirectToAction("Upload");
             }
         }
     }
